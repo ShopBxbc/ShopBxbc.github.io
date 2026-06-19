@@ -1,0 +1,379 @@
+/*=================================
+animations.css
+=================================*/
+
+/* Smooth Transitions */
+
+*{
+
+transition:all .3s ease;
+
+}
+
+/*==============================
+Fade Up Animation
+==============================*/
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/*==============================
+Fade Left
+==============================*/
+
+@keyframes fadeLeft{
+
+0%{
+
+opacity:0;
+
+transform:translateX(-40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+}
+
+/*==============================
+Fade Right
+==============================*/
+
+@keyframes fadeRight{
+
+0%{
+
+opacity:0;
+
+transform:translateX(40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+}
+
+/*==============================
+Floating Animation
+==============================*/
+
+@keyframes floating{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+/*==============================
+Pulse Animation
+==============================*/
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.05);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+/* Hero */
+
+.hero-content{
+
+animation:fadeLeft 1s ease;
+
+}
+
+.hero-image img{
+
+animation:floating 5s ease-in-out infinite;
+
+}
+
+/* Section Titles */
+
+.section-header{
+
+animation:fadeUp .8s ease;
+
+}
+
+/* Cards */
+
+.stat-card,
+
+.service-card,
+
+.brand-card,
+
+.bulk-card,
+
+.why-card,
+
+.gallery-card,
+
+.review-card,
+
+.contact-card{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:.6s;
+
+}
+
+.stat-card.active,
+
+.service-card.active,
+
+.brand-card.active,
+
+.bulk-card.active,
+
+.why-card.active,
+
+.gallery-card.active,
+
+.review-card.active,
+
+.contact-card.active{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* Hover Effects */
+
+.service-card:hover,
+
+.brand-card:hover,
+
+.bulk-card:hover,
+
+.why-card:hover,
+
+.review-card:hover,
+
+.gallery-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+/* Buttons */
+
+.btn:hover,
+
+.contact-btn:hover{
+
+animation:pulse .4s;
+
+}
+
+/* Navbar Active */
+
+nav a.active{
+
+color:var(--primary);
+
+font-weight:600;
+
+position:relative;
+
+}
+
+nav a.active::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-6px;
+
+width:100%;
+
+height:2px;
+
+background:var(--primary);
+
+}
+
+/* Gallery */
+
+.gallery-card img{
+
+transition:.6s;
+
+}
+
+.gallery-card:hover img{
+
+transform:scale(1.08);
+
+}
+
+/* Floating Buttons */
+
+.floating-call:hover,
+
+.floating-whatsapp:hover{
+
+animation:pulse .5s;
+
+}
+
+/* Scroll To Top */
+
+.top-btn{
+
+position:fixed;
+
+bottom:25px;
+
+left:25px;
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+background:var(--primary);
+
+color:#fff;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
+
+cursor:pointer;
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.3s;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+z-index:999;
+
+}
+
+.top-btn.show{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+.top-btn:hover{
+
+transform:translateY(-5px);
+
+background:#0D47A1;
+
+}
+
+/* Image Hover */
+
+img{
+
+transition:.4s;
+
+}
+
+img:hover{
+
+filter:brightness(1.03);
+
+}
+
+/* Text Selection */
+
+::selection{
+
+background:var(--primary);
+
+color:white;
+
+}
+
+/* Smooth Fade */
+
+body{
+
+animation:fadeUp .8s ease;
+
+}
