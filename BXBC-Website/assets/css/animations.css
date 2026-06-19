@@ -1,17 +1,18 @@
-/*==============================
-Animations
-==============================*/
+/*=================================
+animations.css
+=================================*/
 
-/* Smooth transition */
+/* Smooth Transitions */
 
 *{
 
-transition:.3s ease;
+transition:all .3s ease;
 
 }
 
-
-/* Fade In */
+/*==============================
+Fade Up Animation
+==============================*/
 
 @keyframes fadeUp{
 
@@ -33,8 +34,57 @@ transform:translateY(0);
 
 }
 
+/*==============================
+Fade Left
+==============================*/
 
-/* Floating */
+@keyframes fadeLeft{
+
+0%{
+
+opacity:0;
+
+transform:translateX(-40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+}
+
+/*==============================
+Fade Right
+==============================*/
+
+@keyframes fadeRight{
+
+0%{
+
+opacity:0;
+
+transform:translateX(40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+}
+
+/*==============================
+Floating Animation
+==============================*/
 
 @keyframes floating{
 
@@ -58,8 +108,9 @@ transform:translateY(0px);
 
 }
 
-
-/* Pulse */
+/*==============================
+Pulse Animation
+==============================*/
 
 @keyframes pulse{
 
@@ -83,12 +134,11 @@ transform:scale(1);
 
 }
 
-
 /* Hero */
 
 .hero-content{
 
-animation:fadeUp 1s ease;
+animation:fadeLeft 1s ease;
 
 }
 
@@ -98,17 +148,17 @@ animation:floating 5s ease-in-out infinite;
 
 }
 
+/* Section Titles */
 
-/* Section Animation */
-
-section{
+.section-header{
 
 animation:fadeUp .8s ease;
 
 }
 
-
 /* Cards */
+
+.stat-card,
 
 .service-card,
 
@@ -118,15 +168,43 @@ animation:fadeUp .8s ease;
 
 .why-card,
 
-.review-card,
-
 .gallery-card,
 
-.stat-card{
+.review-card,
 
-transition:.35s;
+.contact-card{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:.6s;
 
 }
+
+.stat-card.active,
+
+.service-card.active,
+
+.brand-card.active,
+
+.bulk-card.active,
+
+.why-card.active,
+
+.gallery-card.active,
+
+.review-card.active,
+
+.contact-card.active{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* Hover Effects */
 
 .service-card:hover,
 
@@ -138,9 +216,7 @@ transition:.35s;
 
 .review-card:hover,
 
-.gallery-card:hover,
-
-.stat-card:hover{
+.gallery-card:hover{
 
 transform:translateY(-10px);
 
@@ -148,31 +224,51 @@ box-shadow:0 20px 40px rgba(0,0,0,.12);
 
 }
 
-
 /* Buttons */
 
 .btn:hover,
 
 .contact-btn:hover{
 
-animation:pulse .5s;
+animation:pulse .4s;
 
 }
 
+/* Navbar Active */
 
-/* Images */
+nav a.active{
 
-.gallery-card{
+color:var(--primary);
 
-overflow:hidden;
+font-weight:600;
 
-border-radius:20px;
+position:relative;
 
 }
+
+nav a.active::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-6px;
+
+width:100%;
+
+height:2px;
+
+background:var(--primary);
+
+}
+
+/* Gallery */
 
 .gallery-card img{
 
-transition:.5s;
+transition:.6s;
 
 }
 
@@ -182,43 +278,89 @@ transform:scale(1.08);
 
 }
 
+/* Floating Buttons */
 
-/* Navigation */
+.floating-call:hover,
 
-nav a{
+.floating-whatsapp:hover{
+
+animation:pulse .5s;
+
+}
+
+/* Scroll To Top */
+
+.top-btn{
+
+position:fixed;
+
+bottom:25px;
+
+left:25px;
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+background:var(--primary);
+
+color:#fff;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
+
+cursor:pointer;
+
+opacity:0;
+
+visibility:hidden;
 
 transition:.3s;
 
-}
+box-shadow:0 10px 25px rgba(0,0,0,.15);
 
-nav a:hover{
-
-letter-spacing:.5px;
+z-index:999;
 
 }
 
+.top-btn.show{
 
-/* Logo */
+opacity:1;
 
-.logo h2:hover{
-
-transform:scale(1.05);
-
-color:var(--secondary);
+visibility:visible;
 
 }
 
+.top-btn:hover{
 
-/* Smooth Scroll */
+transform:translateY(-5px);
 
-html{
-
-scroll-behavior:smooth;
+background:#0D47A1;
 
 }
 
+/* Image Hover */
 
-/* Selection */
+img{
+
+transition:.4s;
+
+}
+
+img:hover{
+
+filter:brightness(1.03);
+
+}
+
+/* Text Selection */
 
 ::selection{
 
@@ -228,101 +370,10 @@ color:white;
 
 }
 
+/* Smooth Fade */
 
-/* Scrollbar */
+body{
 
-::-webkit-scrollbar{
-
-width:8px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#eef2f7;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:var(--primary);
-
-border-radius:20px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-background:#1d4ed8;
-
-}
-
-/* Footer */
-
-/* Floating Buttons */
-
-.floating-buttons{
-
-position:fixed;
-
-bottom:25px;
-
-left:25px;
-
-display:flex;
-
-flex-direction:column;
-
-gap:15px;
-
-z-index:999;
-
-}
-
-.floating-call,
-
-.floating-whatsapp{
-
-width:60px;
-
-height:60px;
-
-border-radius:50%;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:28px;
-
-color:white;
-
-text-decoration:none;
-
-box-shadow:0 10px 25px rgba(0,0,0,.15);
-
-transition:.3s;
-
-}
-
-.floating-call{
-
-background:#2563eb;
-
-}
-
-.floating-whatsapp{
-
-background:#25D366;
-
-}
-
-.floating-call:hover,
-
-.floating-whatsapp:hover{
-
-transform:scale(1.1) translateY(-4px);
+animation:fadeUp .8s ease;
 
 }
