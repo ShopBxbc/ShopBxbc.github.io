@@ -942,7 +942,31 @@ title="WhatsApp">
 <script src="assets/js/script.js"></script>
 
 <script src="assets/js/animations.js"></script>
+<script>
 
+if("serviceWorker" in navigator){
+
+window.addEventListener("load",()=>{
+
+navigator.serviceWorker.register("service-worker.js")
+
+.then(reg=>{
+
+console.log("Service Worker Registered",reg);
+
+})
+
+.catch(err=>{
+
+console.log("Service Worker Failed",err);
+
+});
+
+});
+
+}
+
+</script>
 </body>
 
     </html>
