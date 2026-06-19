@@ -255,4 +255,74 @@ border-radius:20px;
 
 background:#1d4ed8;
 
-}2
+}
+
+/* Footer */
+
+/* Floating Buttons */
+
+.floating-buttons{
+
+position:fixed;
+
+bottom:25px;
+
+left:25px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+z-index:999;
+
+}
+
+.floating-call,
+
+.floating-whatsapp{
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:28px;
+
+color:white;
+
+text-decoration:none;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+transition:.3s;
+
+}
+
+.floating-call{
+
+background:#2563eb;
+
+}
+
+.floating-whatsapp{
+
+background:#25D366;
+
+}
+
+.floating-call:hover,
+
+.floating-whatsapp:hover{
+
+transform:scale(1.1) translateY(-4px);
+
+}
