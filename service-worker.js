@@ -2,7 +2,7 @@
 service-worker.js
 =================================*/
 
-const CACHE_NAME = "bxbc-v3";
+const CACHE_NAME = "bxbc-v4";
 
 const urlsToCache = [
 
