@@ -65,6 +65,8 @@ Navbar
 
 <a href="#gallery">Gallery</a>
 
+<a href="#bill-download" class="btn primary">🧾 Download Bill</a>
+
 <a href="#contact">Contact</a>
 
 </nav>
@@ -476,6 +478,60 @@ Request a Quote
 </div>
 
 </section>
+    <!-- ================= BILL DOWNLOAD ================= -->
+
+<section id="bill-download" class="bill-section">
+
+    <div class="section-header">
+
+        <h2>🧾 Download Your Bill</h2>
+
+        <p>
+
+            Enter your registered phone number and bill number
+            to download or print your invoice instantly.
+
+        </p>
+
+    </div>
+
+    <div class="bill-card">
+
+        <input
+            type="tel"
+            id="phoneNo"
+            placeholder="Registered Phone Number">
+
+        <input
+            type="number"
+            id="billNo"
+            placeholder="Bill Number">
+
+        <button class="btn primary" onclick="startBillDownload()">
+
+            🧾 Download Bill
+
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+</section>
+
+<script>
+
+function startBillDownload(){
+
+    const billNumber=document.getElementById("billNo").value;
+
+    const phoneNumber=document.getElementById("phoneNo").value;
+
+    downloadBill(billNumber,phoneNumber);
+
+}
+
+</script>
 
 <!--==============================
 Why Choose BXBC
