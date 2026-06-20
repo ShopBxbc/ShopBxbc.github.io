@@ -2,63 +2,51 @@
 service-worker.js
 =================================*/
 
-const CACHE_NAME="bxbc-v1";
+const CACHE_NAME = "bxbc-v2";
 
-const urlsToCache=[
+const urlsToCache = [
 
 "/",
-
 "/index.html",
-
 "/manifest.json",
-
 "/assets/css/style.css",
-
 "/assets/css/responsive.css",
-
 "/assets/css/animations.css",
-
 "/assets/js/script.js",
-
 "/assets/js/animations.js",
-
 "/assets/images/hero.png"
 
 ];
 
-
 /* Install */
 
-self.addEventListener("install",event=>{
+self.addEventListener("install", event => {
+
+self.skipWaiting();
 
 event.waitUntil(
 
 caches.open(CACHE_NAME)
 
-.then(cache=>{
-
-return cache.addAll(urlsToCache);
-
-})
+.then(cache => cache.addAll(urlsToCache))
 
 );
 
 });
 
-
 /* Activate */
 
-self.addEventListener("activate",event=>{
+self.addEventListener("activate", event => {
 
 event.waitUntil(
 
-caches.keys().then(cacheNames=>{
+caches.keys().then(cacheNames =>
 
-return Promise.all(
+Promise.all(
 
-cacheNames.map(cache=>{
+cacheNames.map(cache => {
 
-if(cache!==CACHE_NAME){
+if (cache !== CACHE_NAME) {
 
 return caches.delete(cache);
 
@@ -66,28 +54,39 @@ return caches.delete(cache);
 
 })
 
+)
+
+)
+
 );
 
-})
-
-);
+self.clients.claim();
 
 });
 
+/* Fetch - Network First */
 
-/* Fetch */
-
-self.addEventListener("fetch",event=>{
+self.addEventListener("fetch", event => {
 
 event.respondWith(
 
-caches.match(event.request)
+fetch(event.request)
 
-.then(response=>{
+.then(response => {
 
-return response||fetch(event.request);
+const responseClone = response.clone();
+
+caches.open(CACHE_NAME).then(cache => {
+
+cache.put(event.request, responseClone);
+
+});
+
+return response;
 
 })
+
+.catch(() => caches.match(event.request))
 
 );
 
