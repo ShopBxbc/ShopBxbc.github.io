@@ -159,50 +159,29 @@ animation:fadeUp .8s ease;
 /* Cards */
 
 .stat-card,
-
 .service-card,
-
 .brand-card,
-
 .bulk-card,
-
 .why-card,
-
 .gallery-card,
-
-.review-card,
-
-.contact-card{
-
-opacity:0;
-
-transform:translateY(40px);
-
-transition:.6s;
-
+.review-card{
+  opacity:0;
+  transform:translateY(40px);
+  transition:.6s;
 }
 
 .stat-card.active,
-
 .service-card.active,
-
 .brand-card.active,
-
 .bulk-card.active,
-
 .why-card.active,
-
 .gallery-card.active,
-
-.review-card.active,
-
-.contact-card.active{
-
-opacity:1;
-
-transform:translateY(0);
-
+.review-card.active{
+  opacity:1;
+  transform:translateY(0);
 }
+
+/* Contact cards animations moved to contact-animations.css */
 
 /* Hover Effects */
 
