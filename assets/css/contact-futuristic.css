@@ -1,0 +1,274 @@
+/*=================================
+FUTURISTIC CONTACT SECTION
+White & Black Theme
+=================================*/
+
+/* Contact Section Background */
+.contact-section {
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Container */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Contact Card - Main */
+.contact-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  padding: 45px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: cardSlideIn 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.contact-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+@keyframes cardSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Futuristic Border Glow */
+.contact-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, #000000, rgba(0, 0, 0, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.contact-card:hover::before {
+  opacity: 1;
+}
+
+/* Card Hover Effect */
+.contact-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 
+    0 40px 80px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Title */
+.contact-card h3 {
+  margin-bottom: 25px;
+  color: #000000;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-card h3::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: #000000;
+  border-radius: 50%;
+  opacity: 0;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+/* Card Paragraph */
+.contact-card p {
+  margin-bottom: 15px;
+  color: #333333;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.contact-card p strong {
+  color: #000000;
+  font-weight: 700;
+}
+
+/* Card Links */
+.contact-card a {
+  display: inline-block;
+  margin-top: 8px;
+  color: #000000;
+  font-weight: 700;
+  font-size: 16px;
+  position: relative;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  background: linear-gradient(135deg, #000000, #333333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-card a::after {
+  content: "→";
+  margin-left: 8px;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.contact-card a:hover::after {
+  opacity: 1;
+  transform: translateX(8px);
+}
+
+/* Map Card */
+.map-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+  animation: mapSlideIn 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+@keyframes mapSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Map Container */
+.map-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 2;
+}
+
+.map-card:hover::after {
+  opacity: 1;
+}
+
+.map-card iframe {
+  display: block;
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 20px;
+  transition: all 0.6s ease;
+  filter: brightness(0.95) contrast(1.05);
+}
+
+.map-card:hover iframe {
+  filter: brightness(1) contrast(1.1);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .contact-card,
+  .map-card {
+    animation-delay: 0.1s !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 35px;
+  }
+  
+  .contact-card h3 {
+    font-size: 20px;
+  }
+  
+  .map-card iframe {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 25px;
+  }
+  
+  .contact-card h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-card p {
+    font-size: 14px;
+  }
+  
+  .map-card iframe {
+    height: 250px;
+  }
+}
