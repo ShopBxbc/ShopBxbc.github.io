@@ -158,7 +158,7 @@ behavior:"smooth"
 
 const revealElements=document.querySelectorAll(
 
-".service-card,.brand-card,.bulk-card,.why-card,.gallery-card,.review-card,.stat-card"
+"stat-card,.service-card,.brand-card,.bulk-card,.why-card,.gallery-card,.review-card,.contact-card,.map-card"
 
 );
 
